@@ -251,6 +251,43 @@ function updateCartUI() {
     });
 }
 
+function initMobileNav() {
+    document.querySelectorAll("header").forEach((header) => {
+        const toggleButton = header.querySelector(".nav-toggle");
+        const nav = header.querySelector("nav");
+
+        if (!toggleButton || !nav) return;
+
+        function closeNav() {
+            header.classList.remove("nav-open");
+            toggleButton.setAttribute("aria-expanded", "false");
+        }
+
+        toggleButton.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            const isOpen = header.classList.toggle("nav-open");
+            toggleButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        nav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeNav);
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!header.contains(event.target)) {
+                closeNav();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeNav();
+            }
+        });
+    });
+}
+
 function initCart() {
     document.querySelectorAll(".cart-wrap").forEach((cartWrap) => {
         createCartPopover(cartWrap);
@@ -466,10 +503,12 @@ window.BeeslineCart = {
 
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
+        initMobileNav();
         initCart();
         createSpinWheelPopup();
     });
 } else {
+    initMobileNav();
     initCart();
     createSpinWheelPopup();
 }

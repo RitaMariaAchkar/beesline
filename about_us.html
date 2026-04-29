@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About Us | Beesline</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+        <link href="images/beesline_favicon.png" rel="icon" type="image/x-icon" />
+        <style>
+            /* Specific adjustments for the About Us layout not covered in your base CSS */
+            .about-hero {
+                height: 600px;
+                text-align: left;
+                align-items: flex-start;
+                padding: 80px;
+                background: #fdf6eb url("images/honey_jar_thumbnail.png") no-repeat right center;
+                background-size: cover;
+            }
+            .about-hero h1 {
+                font-family: "Playfair Display", serif;
+                font-size: 64px;
+            }
+            .about-hero h1 span {
+                color: var(--gold);
+            }
+            .icon-row {
+                display: flex;
+                gap: 30px;
+                margin-top: 40px;
+            }
+            .icon-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 500;
+            }
+            .icon-item>img {
+                border-radius: 10px;
+                border: 2px solid #c8a874;
+                height: 50px;
+                width: 50px;
+            }
+
+            .origin-section {
+                padding: 80px 48px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+            .origin-image img {
+                width: 100%;
+                border-radius: 20px;
+            }
+            .country-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 15px;
+                margin-top: 20px;
+            }
+            .country-item {
+                text-align: center;
+                font-size: 10px;
+                text-transform: uppercase;
+                color: var(--light);
+            }
+
+            .story-timeline {
+                padding: 80px 48px;
+                text-align: center;
+                background: #fff;
+            }
+            .timeline-grid {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 50px;
+                position: relative;
+            }
+            .timeline-item {
+                flex: 1;
+                padding: 0 20px;
+            }
+
+            .commitments-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 20px;
+                padding: 40px 48px;
+            }
+            .commitment-card {
+                border: 1px solid var(--border);
+                border-radius: 15px;
+                padding: 30px 15px;
+                text-align: center;
+                background: #fbfcfb;
+            }
+
+            .certifications-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                padding: 40px 48px;
+            }
+            .certifications-card {
+                border: 1px solid var(--border);
+                border-radius: 15px;
+                padding: 30px 15px;
+                text-align: center;
+                background: #fbfcfb;
+                display: flex;
+                column-gap: 10px;
+            }
+            .certifications-card > img {
+                border-radius: 10px;
+            }
+
+            .logos-strip {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 60px;
+                padding: 40px;
+                opacity: 0.8;
+            }
+            .cert-grid {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                padding-bottom: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/beesline_horizontal_logo.png" style="height: 40px" alt="Beesline" />
+                </a>
+            </div>
+
+            <nav>
+                <a href="shop_all.html">Shop All</a>
+                <a href="recommendation.html">Recommendation</a>
+                <a href="about_us.html" style="color: var(--gold)">About Us</a>
+            </nav>
+
+            <div class="header-icons">
+                <a href="shop_all.html" aria-label="Search products">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </a>
+                <div class="cart-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero about-hero">
+            <div class="hero-content text-start align-items-start">
+                <p class="text-uppercase ls-2 small mb-2" style="letter-spacing: 2px">About Us</p>
+                <h1>Rooted in <span>nature.</span><br />Backed by <span>science.</span></h1>
+                <p class="mt-4" style="max-width: 450px">
+                    A Lebanese-born skincare brand built on apitherapy, dedicated to creating safe, effective, and
+                    conscious beauty solutions.
+                </p>
+                <a href="#" class="btn-primary mt-3">GO SHOPPING</a>
+
+                <div class="icon-row">
+                    <div class="icon-item"><img src="images/about_header_1.png" width="24" /> Science-backed</div>
+                    <div class="icon-item"><img src="images/about_header_2.png" width="24" /> Natural-origin</div>
+                    <div class="icon-item"><img src="images/about_header_3.png" width="24" /> Conscious beauty</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="origin-section">
+            <div>
+                <p class="text-uppercase small mb-1" style="color: var(--gold)">Where we come from</p>
+                <h2 class="fw-bold mb-4">Proudly Lebanese,<br />Made for the Region</h2>
+                <p class="text-muted small">
+                    Beesline is a Lebanese-owned company, fully owned by Lebanese entrepreneurs. We proudly manufacture
+                    our products in Arab countries and distribute them across 12 markets in the MENA region.
+                </p>
+                <div class="country-grid">
+                    <div class="country-item"><img src="images/flags/flag_lb.png" width="30" /><br />Lebanon</div>
+                    <div class="country-item"><img src="images/flags/flag_jo.png" width="30" /><br />Jordan</div>
+                    <div class="country-item"><img src="images/flags/flag_iq.png" width="30" /><br />Iraq</div>
+                    <div class="country-item"><img src="images/flags/flag_eg.png" width="30" /><br />Egypt</div>
+                    <div class="country-item"><img src="images/flags/flag_sa.png" width="30" /><br />KSA</div>
+                    <div class="country-item"><img src="images/flags/flag_kw.png" width="30" /><br />Kuwait</div>
+                    <div class="country-item"><img src="images/flags/flag_qa.png" width="30" /><br />Qatar</div>
+                    <div class="country-item"><img src="images/flags/flag_ua.png" width="30" /><br />UAE</div>
+                    <div class="country-item"><img src="images/flags/flag_om.png" width="30" /><br />Oman</div>
+                    <div class="country-item"><img src="images/flags/flag_tu.png" width="30" /><br />Tunisia</div>
+                    <div class="country-item"><img src="images/flags/flag_ni.png" width="30" /><br />Nigeria</div>
+                    <div class="country-item"><img src="images/flags/flag_li.png" width="30" /><br />Libya</div>
+                </div>
+            </div>
+            <div class="origin-image text-center">
+                <img src="images/raouche.jpg" style="height: 400px; width: 300px; object-fit: cover" alt="Lebanon" />
+            </div>
+            <div>
+                <p class="text-uppercase small mb-1" style="color: var(--gold)">Science you can trust</p>
+                <h2 class="fw-bold mb-4">Licensed by<br />API France</h2>
+                <p class="text-muted small">
+                    In order to sell in international markets Beesline has to abide by international regulation and
+                    safety standards. API France is a licensing research company that validates our formulas for
+                    regulatory and research standards.
+                </p>
+                <img src="images/apifrance_logo.png" width="200" class="mt-4" />
+            </div>
+        </section>
+
+        <section class="story-timeline">
+            <h2 class="text-uppercase" style="color: var(--gold)">Our Story</h2>
+            <h2 class="fw-bold">A personal journey that started in 1993</h2>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <img src="images/about1.png" width="90" class="mb-3" />
+                    <p class="small">
+                        It started when our founders' mother had a harsh reaction to a luxury skincare product.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <img src="images/about2.png" width="90" class="mb-3" />
+                    <p class="small">
+                        The two siblings — a Chemist and a Pharmacologist — discovered that most beauty products were
+                        full of harmful chemicals.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <img src="images/about3.png" width="90" class="mb-3" />
+                    <p class="small">
+                        They turned to nature and the incredible benefits of bee byproducts, building formulas based on
+                        the science of apitherapy.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <img src="images/about4.png" width="90" class="mb-3" />
+                    <p class="small">
+                        Two years later, after the success with dermatologists and their patients, Beesline was born.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="find-routine" style="background: var(--warm-white); padding-top: 80px">
+            <div class="text-center">
+                <h2 class="text-uppercase" style="color: var(--gold)">Our Commitments</h2>
+            </div>
+            <div class="commitments-grid">
+                <div class="commitment-card">
+                    <img src="images/icon_natural.png" width="70" class="mb-3" />
+                    <h4 class="h6 fw-bold">Up to 100% Natural</h4>
+                    <p class="small text-muted" style="font-size: 11px">
+                        Our formulas are made with up to 100% natural origin ingredients.
+                    </p>
+                </div>
+                <div class="commitment-card">
+                    <img src="images/icon_cruelty.png" width="70" class="mb-3" />
+                    <h4 class="h6 fw-bold">Cruelty-free</h4>
+                    <p class="small text-muted" style="font-size: 11px">
+                        PETA certified. We never test on animals at any stage.
+                    </p>
+                </div>
+                <div class="commitment-card">
+                    <img src="images/icon_ethic.png" width="70" class="mb-3" />
+                    <h4 class="h6 fw-bold">Ethically Sourced</h4>
+                    <p class="small text-muted" style="font-size: 11px">
+                        We work with certified suppliers who ensure fair labor.
+                    </p>
+                </div>
+                <div class="commitment-card">
+                    <img src="images/icon_no_nasties.png" width="70" class="mb-3" />
+                    <h4 class="h6 fw-bold">No Nasties</h4>
+                    <p class="small text-muted" style="font-size: 11px">
+                        Free from parabens, silicone, and harsh chemicals.
+                    </p>
+                </div>
+                <div class="commitment-card">
+                    <img src="images/icon_derma.png" width="70" class="mb-3" />
+                    <h4 class="h6 fw-bold">Dermatologically Tested</h4>
+                    <p class="small text-muted" style="font-size: 11px">
+                        Tested on sensitive skin to comply with EU guidelines.
+                    </p>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="global-responsibility d-flex align-items-center mb-5 column-gap-4 justify-content-around">
+                <div style="max-width: 400px">
+                    <p class="text-uppercase small mb-0 fw-bolder" style="color: var(--gold)">Global Responsibility</p>
+                    <p>
+                        Beesline is a participant in the UN Global Compact and supports the 10 principles on Human
+                        Rights, Labor, Environment and anti-corruption. We are committed to the UN 17 Sustainable
+                        Development Goals and proud signatories of the Women's Empowerment Principles (WEPs).
+                    </p>
+                </div>
+
+                <div style="max-width: 400px">
+                    <img src="images/un_global_compact.png" style="height: 100px" />
+                </div>
+
+                <div style="max-width: 400px">
+                    <img src="images/sustainable_development.png" style="height: 100px" />
+                </div>
+
+                <div style="max-width: 400px">
+                    <img src="images/wep.jpg" style="height: 100px" />
+                </div>
+            </div>
+
+            <div class="certifications-grid">
+                <div class="certifications-card">
+                    <img src="images/eu_regulation.png" width="125" height="125" />
+                    <div class="d-flex flex-column">
+                        <h4 class="h6 fw-bold">EU Regulation</br>(EC) No. 1223/2009</h4>
+                        <p class="small text-muted" style="font-size: 11px">
+                            Operating under European Regulation for the safety and quality of cosmetics.
+                        </p>
+                    </div>
+                </div>
+                <div class="certifications-card">
+                    <img src="images/iso_22716.png" width="125" height="125" />
+                    <div class="d-flex flex-column">
+                        <h4 class="h6 fw-bold">ISO 22716</h4>
+                        <p class="small text-muted" style="font-size: 11px">
+                            Good Manufacturing Practices (GMP) to ensure the highest standards in the production, control, storage and shipment of our products.
+                        </p>
+                    </div>
+                </div>
+                <div class="certifications-card">
+                    <img src="images/iso_9001.png" width="125" height="125" />
+                    <div class="d-flex flex-column">
+                        <h4 class="h6 fw-bold">ISO 9001</h4>
+                        <p class="small text-muted" style="font-size: 11px">
+                            Quality Management System that ensures we consistently meet customer and regulatory requirements.
+                        </p>
+                    </div>
+                </div>
+                <div class="certifications-card">
+                    <img src="images/iso_14001.png" width="125" height="125" />
+                    <div class="d-flex flex-column">
+                        <h4 class="h6 fw-bold">ISO 14001</h4>
+                        <p class="small text-muted" style="font-size: 11px">
+                            Environmental Management System that helps us reduce waste, use resources efficiently and protect our environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-strip p-0 mt-5">
+            <img src="images/about_footer.png" style="width: -webkit-fill-available;" />
+            <button class="position-absolute btn btn-dark" style="right: 300px;">SHOP OUR PRODUCTS</button>
+        </section>
+
+        <script src="products.js"></script>
+        <script src="utils.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

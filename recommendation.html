@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Beesline</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link href="images/beesline_favicon.png" rel="icon" type="image/x-icon" />
+        <style>
+            input[type="radio"] {
+                accent-color: var(--gold);
+                width: 18px;
+                height: 18px;
+            }
+
+            label.explore-card:has(input:checked) {
+                border-color: var(--gold);
+                background-color: #fffef0;
+                box-shadow: 0 4px 12px rgba(232, 168, 32, 0.1);
+            }
+
+            .q-group {
+                margin-bottom: 20px;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 10px;
+            }
+            .quiz-label {
+                display: block;
+                padding: 8px 0;
+                cursor: pointer;
+            }
+            .quiz-label input {
+                margin-right: 10px;
+                accent-color: var(--gold);
+            }
+
+            /* Make Bootstrap focus match your Beesline Gold */
+            .form-control:focus,
+            .form-select:focus {
+                border-color: var(--gold);
+                box-shadow: 0 0 0 0.25rem rgba(232, 168, 32, 0.25);
+            }
+
+            .form-floating > label {
+                color: var(--light);
+            }
+
+            .hover-elevate:hover {
+                transform: translateY(-5px);
+                border-color: var(--gold) !important;
+            }
+
+            .find-routine {
+                padding: 60px 20px;
+                background-image: url("images/honey_bg.webp");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: calc(100vh - var(--nav-height));
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/beesline_horizontal_logo.png" style="height: 40px" alt="Beesline" />
+                </a>
+            </div>
+            <nav>
+                <a href="shop_all.html">Shop All</a>
+                <a href="recommendation.html" style="color: var(--gold)">Recommendation</a>
+                <a href="about_us.html">About Us</a>
+            </nav>
+            <div class="header-icons">
+                <a href="shop_all.html" aria-label="Search products">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </a>
+                <div class="cart-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="find-routine">
+            <div
+                id="quiz-container"
+                style="
+                    max-width: 700px;
+                    margin: 0 auto;
+                    background: var(--card-bg);
+                    padding: 40px;
+                    border-radius: 20px;
+                    border: 1px solid var(--border);
+                "
+            >
+                <div class="quiz-step" id="step-0">
+                    <h2 class="text-center mb-4">Personalize Your Care</h2>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select id="user-gender" class="form-select border-warning-subtle shadow-sm">
+                                    <option value="unisex" selected>Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <label for="user-gender">Gender</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input
+                                    type="number"
+                                    id="user-age"
+                                    class="form-control border-warning-subtle shadow-sm"
+                                    placeholder="Age"
+                                    min="1"
+                                    max="100"
+                                />
+                                <label for="user-age">Age</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="mb-3 h5 text-secondary">What are we focusing on today?</h3>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div
+                                class="card h-100 border-warning-subtle shadow-sm hover-elevate"
+                                onclick="startQuiz('skin')"
+                                style="cursor: pointer; transition: transform 0.2s"
+                            >
+                                <div class="card-body text-center p-4">
+                                    <div class="display-4 mb-3">✨</div>
+                                    <h4 class="card-title h5">Skin Care</h4>
+                                    <p class="card-text text-muted small">
+                                        Face & Body solutions tailored to your skin type.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div
+                                class="card h-100 border-warning-subtle shadow-sm hover-elevate"
+                                onclick="startQuiz('hair')"
+                                style="cursor: pointer; transition: transform 0.2s"
+                            >
+                                <div class="card-body text-center p-4">
+                                    <div class="display-4 mb-3">🌿</div>
+                                    <h4 class="card-title h5">Hair Care</h4>
+                                    <p class="card-text text-muted small">
+                                        Scalp & Strand treatments for healthy, glowing hair.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="recommendation-form">
+                    <div id="skin-questions" style="display: none">
+                        <h3 style="margin-bottom: 20px">Skin Analysis</h3>
+                        <div class="q-group">
+                            <p><b>1. Primary Concern:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="acne" /> Acne/Breakouts</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="redness" /> Redness/Sensitivity</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>2. Texture & Pores:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="pore" /> Large Pores</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="texture" /> Rough Texture</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>3. Tone & Aging:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="wrinkles" /> Fine Lines/Wrinkles</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="spots" /> Dark Spots</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="radiance" /> Dullness</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>4. Eye Area:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="dark-circles" /> Dark Circles</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="eye-bag" /> Puffiness/Bags</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>5. Hydration Level:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="oiliness" /> Extremely Oily</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="moisture" /> Dehydrated/Flaky</label
+                            >
+                        </div>
+                    </div>
+
+                    <div id="hair-questions" style="display: none">
+                        <h3 style="margin-bottom: 20px">Hair Analysis</h3>
+                        <div class="q-group">
+                            <p><b>1. Scalp Condition:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="dandruff" /> Dandruff/Itchiness</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="oily-scalp" /> Oily Roots</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>2. Hair Strength:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="hair-loss" /> Thinning/Fallout</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="breakage" /> Fragile/Breakage</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>3. Moisture:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="dry-hair" /> Dry Ends</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="frizz" /> Frizzy/Unruly</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>4. Volume:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="flat" /> Flat/No Volume</label
+                            >
+                        </div>
+                        <div class="q-group">
+                            <p><b>5. Treatment History:</b></p>
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="dyed" /> Color-Treated</label
+                            >
+                            <label class="quiz-label"
+                                ><input type="checkbox" name="tags" value="heat" /> Heat Damaged</label
+                            >
+                        </div>
+                    </div>
+
+                    <div id="form-controls" style="display: none; margin-top: 30px; gap: 10px">
+                        <button type="button" onclick="location.reload()" class="btn-dark" style="flex: 1">
+                            Restart
+                        </button>
+                        <button type="submit" class="btn-primary" style="flex: 2">Get Recommendation</button>
+                    </div>
+                </form>
+
+                <div id="results" style="display: none"></div>
+            </div>
+        </main>
+
+        <script src="products.js"></script>
+        <script src="utils.js"></script>
+        <script src="recommendation.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

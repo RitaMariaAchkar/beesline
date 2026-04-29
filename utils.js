@@ -387,14 +387,55 @@ function closeSpinWheelPopup() {
     }, 220);
 }
 
+function launchSpinWheelConfetti(stage) {
+    if (!stage?.isConnected) return;
+
+    stage.querySelector(".spin-wheel-confetti")?.remove();
+
+    const confettiLayer = document.createElement("div");
+    const colors = ["#e8a820", "#4a7c3f", "#fff3cc", "#d99222", "#7a9a7b", "#ffffff"];
+
+    confettiLayer.className = "spin-wheel-confetti";
+    confettiLayer.setAttribute("aria-hidden", "true");
+
+    for (let index = 0; index < 54; index += 1) {
+        const piece = document.createElement("i");
+        const x = Math.round(Math.random() * 380 - 190);
+        const y = Math.round(Math.random() * -250 - 36);
+        const fall = Math.round(Math.random() * 140 + 50);
+        const spin = Math.round(Math.random() * 620 - 310);
+        const delay = Math.round(Math.random() * 180);
+
+        piece.style.setProperty("--x", `${x}px`);
+        piece.style.setProperty("--y", `${y}px`);
+        piece.style.setProperty("--fall", `${fall}px`);
+        piece.style.setProperty("--spin", `${spin}deg`);
+        piece.style.setProperty("--delay", `${delay}ms`);
+        piece.style.setProperty("--color", colors[index % colors.length]);
+
+        if (index % 3 === 0) {
+            piece.className = "is-round";
+        }
+
+        confettiLayer.appendChild(piece);
+    }
+
+    stage.appendChild(confettiLayer);
+
+    window.setTimeout(() => {
+        confettiLayer.remove();
+    }, 1900);
+}
+
 function initSpinWheelBehavior() {
     const overlay = document.querySelector(".spin-wheel-overlay");
+    const stage = document.querySelector(".spin-wheel-stage");
     const wheel = document.querySelector(".spin-wheel");
     const spinButton = document.querySelector(".spin-wheel-button");
     const result = document.querySelector(".spin-wheel-result");
     const closeButton = document.querySelector(".spin-wheel-close");
 
-    if (!overlay || !wheel || !spinButton || !result || !closeButton) return;
+    if (!overlay || !stage || !wheel || !spinButton || !result || !closeButton) return;
 
     let hasSpun = false;
 
@@ -424,6 +465,7 @@ function initSpinWheelBehavior() {
         window.setTimeout(() => {
             localStorage.setItem(SPIN_WHEEL_SEEN_KEY, "true");
             localStorage.setItem(SPIN_WHEEL_REWARD_KEY, selectedReward);
+            launchSpinWheelConfetti(stage);
             result.innerHTML = `You won: <strong>${escapeHTML(selectedReward)}</strong>`;
             spinButton.textContent = "Reward Saved";
         }, 4300);

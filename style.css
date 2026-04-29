@@ -1810,6 +1810,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     min-height: 390px;
+    overflow: visible;
     position: relative;
 }
 
@@ -1931,6 +1932,32 @@ nav a:hover {
     color: var(--gold-dark);
 }
 
+.spin-wheel-confetti {
+    inset: -48px;
+    overflow: visible;
+    pointer-events: none;
+    position: absolute;
+    z-index: 6;
+}
+
+.spin-wheel-confetti i {
+    animation: spinConfettiPop 1.45s cubic-bezier(0.15, 0.82, 0.23, 1) var(--delay) both;
+    background: var(--color);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(26, 26, 26, 0.14);
+    height: 13px;
+    left: 50%;
+    position: absolute;
+    top: 52%;
+    width: 7px;
+}
+
+.spin-wheel-confetti i.is-round {
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+}
+
 @keyframes spinOverlayIn {
     from {
         opacity: 0;
@@ -1948,6 +1975,26 @@ nav a:hover {
 
     to {
         opacity: 0;
+    }
+}
+
+@keyframes spinConfettiPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    }
+
+    16% {
+        opacity: 1;
+    }
+
+    72% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y) + var(--fall))) scale(1) rotate(var(--spin));
     }
 }
 

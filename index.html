@@ -83,7 +83,7 @@
                         <h1>Your journey has<span class="bee-yellow">BEEgun</span></h1>
                         <div class="hero-underline"></div>
                         <p>Find the perfect routine for your<br />skin, hair, and body in seconds.</p>
-                        <a href="#" class="btn-primary">Shop Now <span class="arrow">→</span></a>
+                        <a href="shop_all.html" class="btn-primary">Shop Now <span class="arrow">→</span></a>
                         <img src="images/dotted-bee.png" id="dotted-bee" />
                     </div>
                 </div>
@@ -425,7 +425,7 @@
 
                 showSlide(0);
 
-                const bundles = products.filter(p => p.category === "bundle");
+                const bundles = getProductsCatalog().filter(p => p.category === "bundle");
                 renderProducts(bundles, '.bundles-grid');
             })();
         </script>

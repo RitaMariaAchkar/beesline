@@ -1,4 +1,4 @@
-const products = [
+var products = [
     {
         id: 1,
         name: "Whitening Roll-On - 72hr - Powder Soft",
@@ -1185,3 +1185,7 @@ const imageFiles = [
 products.forEach((product, index) => {
     product.image = imageFiles[index];
 });
+
+if (typeof window !== "undefined") {
+    window.products = products;
+}

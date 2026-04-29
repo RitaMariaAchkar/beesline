@@ -2261,6 +2261,18 @@ nav a:hover {
         right: 10px;
     }
 
+    .hero-carousel .hero-slide:first-child {
+        opacity: 1 !important;
+        pointer-events: auto;
+        z-index: 2;
+    }
+
+    .hero-carousel .hero-slide:not(:first-child),
+    .hero-carousel .hero-arrow,
+    .hero-carousel .hero-dots {
+        display: none;
+    }
+
     .bee-deco:nth-child(n + 11),
     #dotted-bee {
         display: none;

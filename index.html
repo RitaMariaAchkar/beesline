@@ -420,13 +420,14 @@
                 const dots = Array.from(document.querySelectorAll(".hero-dot"));
                 const prevBtn = document.querySelector(".hero-arrow-left");
                 const nextBtn = document.querySelector(".hero-arrow-right");
+                const mobileCarousel = window.matchMedia("(max-width: 767px)");
 
                 if (!slides.length || !dots.length || !prevBtn || !nextBtn) return;
 
                 let current = 0;
 
                 function showSlide(index) {
-                    current = (index + slides.length) % slides.length;
+                    current = mobileCarousel.matches ? 0 : (index + slides.length) % slides.length;
 
                     slides.forEach((slide, i) => {
                         slide.classList.toggle("active", i === current);
@@ -444,6 +445,7 @@
                     dot.addEventListener("click", () => showSlide(i));
                 });
 
+                mobileCarousel.addEventListener("change", () => showSlide(current));
                 showSlide(0);
 
                 const bundles = getProductsCatalog().filter(p => p.category === "bundle");
